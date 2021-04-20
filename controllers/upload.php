@@ -9,9 +9,14 @@
 </form>
 
 
-
 <?php
-$target_dir = "uploads/";
+//$conn = "SELECT id FROM user where ;";
+// pdo etc
+// Get the user id which will be the path
+
+$UserId = "Tycho";
+
+$target_dir = "../Files/" . $UserId . "/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -30,7 +35,7 @@ if (isset($_POST["submit"])) {
 
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "File already exists.";
+    echo "File with this name already exists.";
     $uploadOk = 0;
 }
 
