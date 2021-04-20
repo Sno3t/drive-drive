@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 20, 2021 at 02:49 PM
+-- Generation Time: Apr 20, 2021 at 03:24 PM
 -- Server version: 8.0.23-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `file_uploader`
 --
-CREATE DATABASE IF NOT EXISTS `file_uploader` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `file_uploader` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `file_uploader`;
 
 -- --------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `account` (
   `Hash_password` varchar(256) NOT NULL,
   `email` varchar(20) NOT NULL,
   `bevoegtheid` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE `files` (
   `file_name` varchar(255) NOT NULL,
   `file_type` varchar(6) NOT NULL,
   `file_size` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
