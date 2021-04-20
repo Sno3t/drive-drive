@@ -36,7 +36,7 @@ CREATE TABLE `account` (
   `Hash_password` varchar(256) NOT NULL,
   `email` varchar(20) NOT NULL,
   `bevoegtheid` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE `files` (
   `file_name` varchar(255) NOT NULL,
   `file_type` varchar(6) NOT NULL,
   `file_size` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
