@@ -6,7 +6,7 @@
 
         // Check if the values are correct
             if ($_POST['password'] !== $_POST['password_repeat']) {
-               header("refresh:5;url=../views/registreer.html");
+               header("refresh:5;url=../views/register.html");
                echo 'de twee wachtwoorden komen niet overeen'; 
             }else{
                 // Validation on input
@@ -44,11 +44,11 @@
                         echo "registratie is succesvol";
                     } else if ($stmt->errorCode === '23000') {
                         // Username already exists. Try another username.
-                        throw new PDOException("deze gebruikersnaam bestaat al <a href='../views/registreer.html'>terug</a>");
+                        throw new PDOException("deze gebruikersnaam bestaat al <a href='../views/register.html'>terug</a>");
                         // Create a link to the registration page.
                     } else {
                         // General error. Give a general message 
-                        throw new PDOException("er is iets misgegaan <a href='../views/registreer.html'>terug</a><br>" . $stmt->errorInfo() . " " . $stmt->errorCode());
+                        throw new PDOException("er is iets misgegaan <a href='../views/register.html'>terug</a><br>" . $stmt->errorInfo() . " " . $stmt->errorCode());
                         // Then give the errorInfo() and errorCode() in parenthesis.
                     }
                 } catch (PDOException $e) {
