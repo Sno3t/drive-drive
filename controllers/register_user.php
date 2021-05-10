@@ -19,13 +19,13 @@
                 $password_hash = password_hash($password, PASSWORD_BCRYPT); // htmlspecialchars()
 
                 // Set the default values for the database (unsafe):
-                    $host = 'localhost';
+                    $host = 'mysql';
                     $db   = 'file_uploader';
                     $user = 'root';
                     $pass = 'root';
                     $charset = 'utf8';
         
-                    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+                    $dsn = "mysql:host=$host;port=3306;dbname=$db;charset=$charset";
                     $options = [
                         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -37,12 +37,13 @@
                     $pdo = new PDO($dsn, $user, $pass, $options);
                     // Insert the user into to database, using prepare()
 
-                    $stmt = $pdo->query("SELECT COUNT(*) FROM account WHERE Username = $username OR email = $email;");
+                    $stmt = $pdo->prepare("SELECT COUNT(*) FROM account WHERE Username = ? OR email = ?;");
+                    $stmt->execute([$username,$email]);
                     if($count = $stmt->fetchColumn() < 1){
-                        $stmt2 = $pdo->prepare("INSERT INTO `account`(`ID`, `Username`,`Hashpassword`,`email`,`bevoegtheid`) VALUES (NULL,?,?,?,1);");
+                        $stmt2 = $pdo->prepare("INSERT INTO `account`(`ID`, `Username`,`Hash_password`,`email`,`bevoegtheid`) VALUES (NULL,?,?,?,1);");
                         $stmt2->execute([$username,$password_hash,$email]);
                         if ($stmt2->rowCount() === 1) {
-                            header("redirect:5;url=../views/overview.html");
+                            header("redirect:2;url=../views/overview.html");
                             $_SESSION["username"] = $username;
                             $_SESSION["loggedin"] = true;
                             echo "registratie is succesvol";
