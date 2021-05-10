@@ -10,7 +10,8 @@
 
 
 <?php
-//$conn = "SELECT id FROM user where ;";
+$conn = "";
+$sql = "SELECT `account_ID` FROM `files` WHERE 1;";
 // pdo etc
 // Get the user id which will be the path
 
@@ -62,7 +63,18 @@ if ($uploadOk == 0) {
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
+
+
 }
+echo "<br> File size: ";
+echo $_FILES["fileToUpload"]["size"];
+echo "<br> Filetype: ";
+echo $imageFileType;
+echo "<br> File name: ";
+echo $_FILES["fileToUpload"]["name"];
+
+
+
 
 ?>
 

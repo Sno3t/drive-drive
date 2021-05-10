@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `file_uploader`
 --
-CREATE DATABASE IF NOT EXISTS `file_uploader` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `file_uploader` DEFAULT CHARACTER SET utf8mb4;
 USE `file_uploader`;
 
 -- --------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `account` (
   `Hash_password` varchar(256) NOT NULL,
   `email` varchar(20) NOT NULL,
   `bevoegtheid` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE `files` (
   `file_name` varchar(255) NOT NULL,
   `file_type` varchar(6) NOT NULL,
   `file_size` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
