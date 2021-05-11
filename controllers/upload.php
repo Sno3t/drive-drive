@@ -47,9 +47,8 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 }
 
 // Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "webp" && $imageFileType != "jpeg"
-    && $imageFileType != "gif") {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed. <br>";
+if ($imageFileType != "exe" && $imageFileType != "zip") {
+    echo "Sorry, no EXE or ZIP files are allowed. ";
     $uploadOk = 0;
 }
 
@@ -61,16 +60,22 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
     } else {
-        echo "Sorry, there was an error uploading your file. <br>";
+        echo "Sorry, there was an error uploading your file. ";
     }
 
 
 }
 
+$bytes = $_FILES["fileToUpload"]["size"];
+$fileName = $_FILES["fileToUpload"]["name"];
+$imageFileType;
+
+$sql = "INSERT INTO `files`(`id`, `account_ID`, `file_name`, `file_type`, `file_size`) VALUES (DEFAULT,".$UserId.",".$fileName.",".$imageFileType.",".$bytes.")";
+
 echo "<br>";
 echo "<br> File size: ";
 
-$bytes = $_FILES["fileToUpload"]["size"];
+
 if ($_FILES["fileToUpload"]["size"] >= 1073741824) {
             echo number_format($bytes / 1073741824, 2) . ' GB';
         } elseif ($bytes >= 1048576) {
