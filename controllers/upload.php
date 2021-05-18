@@ -72,6 +72,7 @@ $imageFileType;
 
 $sql = "INSERT INTO `files`(`id`, `account_ID`, `file_name`, `file_type`, `file_size`) VALUES (DEFAULT,".$UserId.",".$fileName.",".$imageFileType.",".$bytes.")";
 
+$as = "A new change for github";
 
 echo "<br>";
 echo "<br> File size: ";
